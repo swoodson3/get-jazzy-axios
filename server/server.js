@@ -62,6 +62,16 @@ app.get('/song', (req, res) => {
 
 // TODO - Add GET for songs
 
+app.post('/song', (req, res) => {
+    console.log('POST Request made for /song');
+    // Any data we send from the client is available
+    // as a property of req.body
+    console.log(req.body);
+    let songToAdd = req.body
+    songListArray.push(songToAdd);
+    res.sendStatus(201); // Success!
+})
+
 app.listen(PORT, () => {
     console.log('listening on port', PORT)
 });
